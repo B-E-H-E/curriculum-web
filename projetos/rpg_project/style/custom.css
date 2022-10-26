@@ -1,0 +1,475 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 62.5%;
+    font-family: 'Silkscreen', 'Comfortaa', 'League Gothic', sans-serif;
+}
+
+body {
+    background-color: rgb(13, 2, 19);
+    color: #fff;
+}
+
+div {
+    width: 100%;
+    text-align: center;
+}
+
+footer {
+    padding-bottom: 5px;
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    top: 100vh;
+    transform: translate(0, -100%);
+    font-size: 1.15rem;
+}
+
+h1 {
+    font-size: 3rem;
+    text-align: center;
+}
+
+/* ---------------------------------  INTRO SCREEN  ---------------------------------  */
+.cylon_eye_container {
+background-color: rgba(0,0,0,0);
+height: 5px;
+width: 100%;
+overflow: hidden;
+}
+.cylon_eye {
+background-color: rgb(0, 0, 0, 0);
+background-image: linear-gradient(to right,
+    rgba(0, 0, 0, 0) 15%,
+    rgba(200, 0, 100, .75) 33%,
+    rgba(200, 0, 200, .9) 50%,
+    rgba(100, 0, 200, .75) 66%,
+    rgba(0, 0, 0, 0) 85%);
+color: white;
+height: 100%;
+width: 10%;
+
+-webkit-animation: 4s linear 0s infinite move_eye;
+        animation: 4s linear 0s infinite move_eye;
+}
+@-webkit-keyframes move_eye { from { margin-left: -10%; } to { margin-left: 100%; }  }
+        @keyframes move_eye { from { margin-left: -10%; } to { margin-left: 100%; }  }
+
+#press_key_container {
+    visibility: hidden;
+    text-align: center;
+    margin-top: 10%;
+    font-size: 2rem;    
+}
+
+#narration_placeholder {    
+    width: 80%;
+    text-align: center;
+    margin: 4%;    
+    font-size: 2.5rem;
+    text-shadow: cyan -2px 0, red 2px 0;    
+    letter-spacing: 2px;
+}
+
+/* ---------------------------------  DISPLAYS  ---------------------------------  */
+
+/* Create Character Button */
+.hidden_toggle_2 {
+    display: none;
+}
+
+/* SHOULD BE Class Selection */
+.hidden_toggle_3 {
+    display: none;
+}
+
+/* SHOULD BE Points Distribution */
+.hidden_toggle_4 {
+    display: none;
+    transform: translate(0, -50%);
+}
+
+.hidden_toggle_2, .hidden_toggle_4 {
+    position: relative;
+    top: 50vh;
+}
+
+.hidden_toggle_1 {
+    position: relative;
+    top: 40vh;
+}
+
+.always_hidden {
+    display: none;
+}
+
+/* ---------------------------------  CREATE CHARACTER BUTTON  ---------------------------------  */
+.button_create {
+    font-family: inherit;
+    font-size: 3rem;
+    text-shadow: cyan -2px 0, red 2px 0;
+    text-align: center;    
+    position: relative;
+    top: -5vh;
+    width: clamp(20vw, 450px, 80vw);
+    letter-spacing: 2px;
+    border: none;
+    border-radius: 25px;
+    background-color: rgba(0, 0, 0, 0);
+    color: #cdcdcd;
+    cursor: pointer;
+}
+
+.button_create::before {
+    content: '';
+    background-image: linear-gradient(to right,
+    rgba(200, 0, 100, .75) 33%,
+    rgba(200, 0, 200, .9) 50%,
+    rgba(100, 0, 200, .75) 66%);
+    border-radius: 25px;    
+    inset: 0;
+    position: absolute;
+    z-index: -1;
+    transition: transform 250ms ease-out;
+    transform-origin: middle;
+    transform: scaleX(0);
+} 
+
+.button_create:hover::before {
+    transform: scaleX(1);
+    transform-origin: middle;
+}
+
+.button_create:active {
+    background-color: rgba(150, 75, 250, .75);
+    transition: 100ms linear;
+}
+
+/* ---------------------------------  POINTS DISTRIBUTION  ---------------------------------  */
+.table_header {    
+    padding: 15px;
+    font-size: 2.5rem;    
+}
+
+.attributes_table {
+    width: 100%;
+    margin: 0 auto;
+    font-size: 2rem;    
+    border-collapse: collapse;
+}
+
+.align_right {
+    vertical-align: top;
+}
+
+.attribute {    
+    padding: 1%;
+    letter-spacing: 0.5rem;
+    line-height: 5rem;    
+    vertical-align: middle;
+}
+
+.attribute_number {
+    text-align: center;
+}
+
+.strength:hover {
+    background: linear-gradient(
+        to right,
+        rgb(255, 0, 0) 0%,
+        rgb(255, 25, 25) 25%,      
+        rgb(255, 50, 50) 50%,
+        rgba(255, 50, 50, 0) 80%
+    );
+}
+.agility:hover {
+    background: linear-gradient(
+        to right,
+        rgb(255, 255, 0) 0%,
+        rgb(230, 230, 0) 25%,
+        rgb(205, 205, 100) 50%,
+        rgba(205, 205, 100, 0) 80%
+    );
+}
+.constitution:hover {
+    background: linear-gradient(
+        to right,
+        rgb(0, 255, 0) 0%,
+        rgb(25, 255, 25) 25%,
+        rgb(50, 255, 50) 50%,
+        rgba(50, 255, 50, 0) 80%
+    );
+}
+.dexterity:hover {
+    background: linear-gradient(
+        to right,
+        rgb(50, 50, 255) 0%,
+        rgb(75, 75, 255) 25%,
+        rgb(125, 125, 255) 50%,
+        rgba(125, 125, 255, 0) 80%
+    );
+}
+.intelligence:hover {
+    background: linear-gradient(
+        to right,
+        rgb(100, 0, 255) 0%,
+        rgb(125, 0, 255) 25%,
+        rgb(150, 0, 255) 50%,
+        rgba(150, 0, 255, 0) 80%
+    );
+}
+.charisma:hover {
+    background: linear-gradient(
+        to right,
+        rgb(255, 0, 205) 0%,
+        rgb(255, 0, 190) 25%,
+        rgb(255, 0, 175) 50%,
+        rgba(255, 0, 175, 0) 80%
+    );
+}
+
+.btn_minus, .btn_plus {
+    padding: 5px;
+    margin: 2px 15px;
+    background-color: rgba(0, 0, 0, 0);
+    border: none;    
+    font-weight: 500;
+    font-family: inherit;
+    font-size: 1.5rem;
+    color: inherit;
+    cursor: pointer;
+}
+
+.btn_minus:hover, .btn_plus:hover {
+    transition: 0.5s ease-in-out;    
+    color: rgba(255, 0, 50, 0.75);
+    font-weight: 800;
+}
+
+.btn_minus:active, .btn_plus:active {
+    transition: none;
+    color: #cdcdcd;
+    font-weight: 500;
+}
+
+#button_next {
+    padding: 10px;
+    margin-top: 30px;
+    background-color: rgba(0, 0, 0, 0);
+    border: 1px solid #eee;
+    border-radius: 10%;
+    font-weight: 500;
+    font-family: inherit;
+    font-size: 1.75rem;
+    color: inherit;
+    cursor: pointer;
+}
+
+#button_next:hover {
+    background-color: rgb(150, 100, 200);
+    border-color: rgb(150, 100, 200);
+    transition: 0.75s ease-in-out;
+}
+
+#button_next:active {
+    color: rgb(150, 100, 200);
+    transition: none;
+}
+
+/* -----------------------------  CLASS SELECTION  --------------------------------- */
+/*.hidden_toggle_1 {
+    display: none;
+}*/
+
+h1 {
+text-shadow: cyan -2px 0, red 2px 0;
+letter-spacing: 0.8rem;
+padding: 2.5%;
+}
+
+.classes_container {    
+    position: absolute;
+    top: 50%;
+    transform: translateY(-45%);
+}
+
+.class-icon {
+    width: 300px;
+    max-width: 75vw;
+    height: auto;
+    border: 1px solid rgba(0, 0, 0, 0);
+    border-radius: 5%;
+    position: relative;
+    transition: 1s;
+    cursor: pointer;
+}
+
+.class-icon:hover {
+    width: 325px;
+    max-width: 75vw;
+    height: auto;
+    border: 1px solid white;
+    transition: 1s;
+}
+
+.class_desc {
+    color:rgba(0, 0, 0, 0);
+    font-size: 1.5rem;
+    transition: 0.5s;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.class_desc h2 {
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+.class_desc p {
+    width: 50%;
+    margin: 0 auto;
+}
+
+.class_selector {
+    display: none;
+}
+
+#btn_change_class_left,
+#btn_change_class_right {
+    background-color: rgba(0, 0, 0, 0);
+    color: #cdcdcd;    
+    font-family: inherit;
+    font-size: 5rem;
+    transform: translateY(-50%);
+    border: none;    
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+#btn_change_class_left:hover,
+#btn_change_class_right:hover {
+    color: rgb(255, 50, 75);
+    transition: 0.5s;
+}
+
+#btn_change_class_left:hover {
+    transform:translate(-25%, -50%);
+}
+
+#btn_change_class_right:hover {
+    transform:translate(25%, -50%);
+}
+
+.class_nav {
+    position: absolute;
+    top: 50%;
+    z-index: 1;
+    display: flex;
+    gap: 45%;
+    justify-content: center;    
+}
+
+.confirm_class_button {
+    padding: 10px;
+    margin-top: 10px;
+    background-color: rgba(0, 0, 0, 0);
+    border: 1px solid #eee;
+    border-radius: 10px;
+    font-weight: 500;
+    font-family: inherit;
+    font-size: 1.75rem;
+    color: inherit;
+    cursor: pointer;
+}
+
+.confirm_class_button:hover {
+    background-color: rgb(200, 60, 80);
+    border-color: rgb(200, 60, 80);
+    transition: 0.5s ease;
+}
+
+.confirm_class_button:active {
+    color: rgb(200, 60, 80);
+    transition: none;
+}
+
+#confirm_class {
+    visibility: hidden;    
+}
+
+@media (max-width: 425px) {
+    .button_create {
+        font-size: 2.65rem;
+    }
+    #narration_placeholder {
+        font-size: 2rem;
+        margin: 0;
+    }
+    #narration_container {
+        width: 80%;
+        margin: 0 auto;
+    }
+    .class_nav {        
+        gap: 70%;            
+    }
+    footer {
+        font-size: 1rem;
+        display: none;
+    }
+    .table_header {
+        font-size: 2rem;
+    }
+    .attributes_table {
+        font-size: 1.5rem;
+    }    
+    .attribute {
+        letter-spacing: 0.1rem;        
+    }
+}
+
+@media (max-width: 768px) {    
+    .class_nav {        
+        gap: 70%;            
+    }    
+    .classes_container {        
+        top: 10%;
+        transform: translate(0, 0);
+    }
+    h1 {
+        font-size: 2rem;
+    }
+    .class-icon {
+        height: 40vh;
+        width: auto;
+        border: none; 
+        margin: 2%;   
+    }
+    .class-icon:hover {
+        height: 40vh;
+        width: auto;
+        border: none;
+    }
+    footer {
+        font-size: 1rem;
+        display: none;
+    }
+    .class_desc {
+        color: #cdcdcd !important;
+        font-size: 1.4rem !important;
+        margin-top: 15%;
+    }
+    .class_desc p {
+        width: 90%;
+        text-align: justify;
+    }    
+    #confirm_class {
+        visibility: visible !important;    
+    }
+}

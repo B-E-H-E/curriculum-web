@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Favicon-->
+    <link rel="icon" type="image/png" size="16x16" href="./favicons/favicon-16x16.png">
+    <!--CSS-->
+    <link rel="stylesheet" type="text/css" href="./style/custom.css">
+    <!--Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css?family=Silkscreen" rel="stylesheet">
+    <title>RPG Project</title>
+    <!--JS-->
+    <script defer type="text/javascript" src="./script/custom.js"></script>
+</head>
+<body>    
+    <section class="hidden_toggle_1">
+        <div id="narration_container">
+            <span id="narration_placeholder">Press any key...</span>
+        </div>
+        
+        <div id="press_key_container">
+            <span id="press_key">Press any key...</span>
+        </div>
+        <div class="cylon_eye_container">
+            <div class="cylon_eye"></div>
+        </div>
+
+        <div class="always_hidden">
+            <p class="narr">The hammer of creation hits down...</p>
+            <p class="narr">sparkling a singular world in this god forsaken universe...</p>
+            <p class="narr">The World of Andoxenon</p>
+            <p class="narr">A place of wonders and of magic</p>
+            <p class="narr">but also of tyranny and destruction</p>                
+            <p class="narr"><u>YOU</u> awaken and feel the beckon</p>
+            <p class="narr">To enter this world and fulfill your fate...</p>
+            <p class="narr">whatever it turns out to be.</p>
+        </div>        
+    </section>
+
+    <section class="hidden_toggle_2">
+        <div>                
+            <button type="button" class="button_create">Create Character</button>                
+        </div>
+    </section>
+
+    <section class="hidden_toggle_3">
+        <h1>Choose Your Class:</h1>  
+             
+        <div class="class_nav">
+            <button class="navbutton" type="button" id="btn_change_class_left" onclick="plusClasses(-1)">&#10094;</button>        
+            <button class="navbutton" type="button" id="btn_change_class_right" onclick="plusClasses(1)">&#10095;</button> 
+        </div> 
+               
+        <div class="classes_container">
+
+            <div class="class_selector">
+                <img class="class-icon" id="lycan" src="./img/lycan.png" alt="Lycan" onmouseover="classDesc(0)" onmouseleave="removeClassDesc(0)" onclick="confirmClass()">
+                <div class="class_desc" id="lycan_desc">
+                    <h2>Lycan</h2>
+                    <p>Shapeshifting creatures of the night cursed to forever remain in this beastly state. Lycans are purely instinctive, relentless beasts. Stalk, howl, rip and tear.<br><br>Main attributes: Strength, Agility, Constitution.</p>
+                </div>
+            </div>
+
+            <div class="class_selector">
+                <img class="class-icon" id="vampire" src="./img/vampire.png" alt="Vampire" onmouseover="classDesc(1)" onmouseleave="removeClassDesc(1)" onclick="confirmClass()">
+                <div class="class_desc" id="vampire_desc">
+                    <h2>Vampire</h2>
+                    <p>Either silver-tongued devils who always get what they want or shadowy nocturnal figures who only crave for blood. Concocting their vile plans under the night's cloak, vampires are both cunning and brutal.<br><br>Main attributes: Intelligence, Charisma.</p>
+                </div>
+            </div>
+
+            <div class="class_selector">    
+                <img class="class-icon" id="explorer" src="./img/hunter.png" alt="Explorer" onmouseover="classDesc(2)" onmouseleave="removeClassDesc(2)" onclick="confirmClass()">
+                <div class="class_desc" id="explorer_desc">
+                    <h2>Hunter</h2>
+                    <p>Humans both immune to the lycan curse and not descending of the vampire bloodline. Left alone to survive in this dark world, hunters are resourceful, unpredictable and errant figures.<br><br>Main attributes: Dexterity.</p>
+                </div>                
+            </div>
+
+            <div class="class_selector">
+                <img class="class-icon" id="necromancer" src="./img/necromancer.png" alt="Necromancer" onmouseover="classDesc(3)" onmouseleave="removeClassDesc(3)" onclick="confirmClass()">
+                <div class="class_desc" id="necromancer_desc">
+                    <h2>Necromancer</h2>
+                    <p>Pulled into this realm by occult rituals of a long gone Lord of the dark. Necromancers are unliving, chaotic individuals able to interact and control the dead. And given this long going war, there are plenty of lost souls going around...<br><br>Main attributes: Intelligence.</p>
+                </div>
+            </div>
+
+            <div class="class_selector">
+                <img class="class-icon" id="sage" src="./img/sage.png" alt="Sage" onmouseover="classDesc(4)" onmouseleave="removeClassDesc(4)" onclick="confirmClass()">
+                <div class="class_desc" id="sage_desc">
+                    <h2>Sage</h2>
+                    <p>Akin to rural environments and magic, Sages are insightful beings from another realm that can channel and weaponize the forces of nature around them. Both rogues and mages, Sages are formidable individuals.<br><br>Main attributes: Dexterity, Intelligence.</p>
+                </div>
+            </div>
+
+            <div id="confirm_class">
+                <button class="confirm_class_button" onclick="classConfirmed()">Confirm Class</button>
+            </div>
+        </div>
+    </section>
+    
+    <section class="hidden_toggle_4">        
+        <div class="attributes_table_container">
+            <table class="attributes_table">
+                <theader>
+                    <th class= "table_header" colspan="2">Distribute your points: <span id="points_left"></span></th>
+                </theader>
+                <tr class="attribute strength">
+                    <td>Strength</td>
+                    <td class="align_right"><button type="button" class="btn_minus">-</button><span class="attribute_number"></span><button type="button" class="btn_plus">+</button></td>
+                </tr>
+                <tr class="attribute agility">
+                    <td>Agility</td>
+                    <td class="align_right"><button type="button" class="btn_minus">-</button><span class="attribute_number"></span><button type="button" class="btn_plus">+</button></td>
+                </tr>                    
+                <tr class="attribute constitution">
+                    <td>Constitution</td>
+                    <td class="align_right"><button type="button" class="btn_minus">-</button><span class="attribute_number"></span><button type="button" class="btn_plus">+</button></td>
+                </tr>
+                <tr class="attribute dexterity">
+                    <td>Dexterity</td>
+                    <td class="align_right"><button type="button" class="btn_minus">-</button><span class="attribute_number"></span><button type="button" class="btn_plus">+</button></td>
+                </tr>                    
+                <tr class="attribute intelligence">
+                    <td>Intelligence</td>
+                    <td class="align_right"><button type="button" class="btn_minus">-</button><span class="attribute_number"></span><button type="button" class="btn_plus">+</button></td>
+                </tr>
+                <tr class="attribute charisma">
+                    <td>Charisma</td>
+                    <td class="align_right"><button type="button" class="btn_minus">-</button><span class="attribute_number"></span><button type="button" class="btn_plus">+</button></td>
+                </tr>
+            </table>
+        </div>
+        
+        <div>
+            <button type="button" id="button_next">Next</button>
+        </div>
+    </section>
+
+    
+    <footer>
+        <div id="footer_container">
+            <p>Developed by Behe. I don't own any of the images or assets used.</p>
+        </div>
+    </footer>
+</body>
+</html>
