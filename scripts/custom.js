@@ -16,7 +16,6 @@ window.onload = function() {
 $('.nav-link').on('click', function(event){
   if (!$('.sobre').is(':visible')) {
     event.preventDefault();
-    console.log('ok');
     $('.seta').removeClass('seta_inv');
  }
 })

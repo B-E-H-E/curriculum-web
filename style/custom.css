@@ -68,17 +68,27 @@ section {
     color:rgb(151, 187, 241);
 }
 .fa-chevron-left {
-    animation: arrow-r 1s ease-in-out alternate infinite;
+    animation: arrow-r 1s linear alternate infinite;
 }
 
 .fa-chevron-right {
-    animation: arrow-l 1s ease-in-out alternate infinite;
+    animation: arrow-l 1s linear alternate infinite;
+}
+
+.fa-chevron-left:nth-child(2),
+.fa-chevron-right:nth-child(2){
+    animation-delay: -0.15s;
+}
+.fa-chevron-left:nth-child(3),
+.fa-chevron-right:nth-child(1){
+    animation-delay: -0.3s;
 }
 
 @keyframes arrow-r {
     0% {
         transform: translateX(100%);
-        opacity: 15%;
+        opacity: 50%;
+
     }
     100% {
         transform: translateX(75%);
@@ -89,7 +99,7 @@ section {
 @keyframes arrow-l {
     0% {
         transform: translateX(-75%);
-        opacity: 15%;
+        opacity: 50%;
     }
     100% {
         transform: translateX(-50%);
@@ -151,8 +161,15 @@ a:hover {
 }
 
 .ola-wrapper:hover {    
-    box-shadow: 0px 0px 10px 5px rgba(255, 201, 254, 0.5);
+    box-shadow: 0px 0px 15px 5px rgba(255, 255, 255, 0.25);
     transition: 0.25s ease-in;
+    animation: coresDancantes 2s linear infinite;
+}
+
+@keyframes coresDancantes {
+    100% {
+        filter: hue-rotate(360deg);
+    }    
 }
 
 .ola-wrapper:active {
